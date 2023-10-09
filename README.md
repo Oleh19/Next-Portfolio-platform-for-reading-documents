@@ -5,3 +5,4 @@
 - Lucide React
 - Radix UI
 - tRPC
+- Prisma
