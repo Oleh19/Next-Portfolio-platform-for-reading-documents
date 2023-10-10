@@ -40,7 +40,7 @@ export const appRouter = router({
   }),
 
   deleteFile: privateProcedure
-    .input(z.object({ id: z.string(), name: z.string() }))
+    .input(z.object({ id: z.string()}))
     .mutation(async ({ ctx, input }) => {
       const { userId } = ctx;
 
@@ -50,6 +50,16 @@ export const appRouter = router({
           userId,
         },
       });
+
+      if (!file) throw new TRPCError({ code: 'NOT_FOUND' });
+
+      await db.file.delete({
+        where: {
+          id: input.id,
+        },
+      });
+
+      return file;
     }),
 });
 
