@@ -1,5 +1,5 @@
 interface ChatInputProps {
-  isDisabled: boolean;
+  isDisabled?: boolean;
 }
 
 const ChatInput = ({ isDisabled }: ChatInputProps) => {
