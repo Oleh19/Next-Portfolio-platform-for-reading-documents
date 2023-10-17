@@ -6,3 +6,6 @@
 - Radix UI
 - tRPC
 - Prisma
+
+TODO ------
+ *refactor after finishing the project
