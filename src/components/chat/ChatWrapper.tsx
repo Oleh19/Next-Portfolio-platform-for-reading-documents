@@ -6,6 +6,7 @@ import Messages from './Messages';
 import { ChevronLeft, Loader2, XCircle } from 'lucide-react';
 import Link from 'next/link';
 import { buttonVariants } from '../ui/button';
+import { ChatContextProvider } from './ChatContext';
 
 interface ChatWrapperProps {
   fileId: string;
@@ -46,7 +47,7 @@ const ChatWrapper = ({ fileId }: ChatWrapperProps) => {
             <h3 className='font-semibold text-xl'>Too many pages in PDF</h3>
             <p className='text-zinc-500 text-sm'>
               Your <span className='fony-medium'>Free</span> plan supports up to
-              5 pages per PDF
+              5 pages per PDF (or pinecone subscription has expired )
             </p>
             <Link
               href='/dashboard'
@@ -65,13 +66,15 @@ const ChatWrapper = ({ fileId }: ChatWrapperProps) => {
     );
 
   return (
-    <div className='relative min-h-full bg-zinc-50 flex divide-y divide-zinc-200 flex-col justify-between gap-2'>
-      <div className='flex-1 justify-between flex-col flex mb-28'>
-        <Messages />
-      </div>
+    <ChatContextProvider fileId={fileId}>
+      <div className='relative min-h-full bg-zinc-50 flex divide-y divide-zinc-200 flex-col justify-between gap-2'>
+        <div className='flex-1 justify-between flex-col flex mb-28'>
+          <Messages />
+        </div>
 
-      <ChatInput />
-    </div>
+        <ChatInput />
+      </div>
+    </ChatContextProvider>
   );
 };
 

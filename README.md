@@ -6,6 +6,10 @@
 - Radix UI
 - tRPC
 - Prisma
+- Pinecone
 
-TODO ------
- *refactor after finishing the project
+TODO :
+ 1. Refactor after finishing the project
+ 
+ Notice:
+ 1. Possible issues due to non-renewal of Pinecone subscription.
