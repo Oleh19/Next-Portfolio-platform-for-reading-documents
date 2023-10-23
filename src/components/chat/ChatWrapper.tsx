@@ -44,11 +44,13 @@ const ChatWrapper = ({ fileId }: ChatWrapperProps) => {
         <div className='flex-1 flex justify-center items-center flex-col mb-28'>
           <div className='flex flex-col items-center gap-2'>
             <XCircle className='h-8 w-8 text-red-500' />
-            <h3 className='font-semibold text-xl'>Too many pages in PDF</h3>
+            <h3 className='font-semibold text-xl'>
+              AI is temporarily unavailable
+            </h3>
             <p className='text-zinc-500 text-sm'>
-              Your <span className='fony-medium'>Free</span> plan supports up to
-              5 pages per PDF (or pinecone subscription has expired )
+              (Pinecone subscription has expired)
             </p>
+
             <Link
               href='/dashboard'
               className={buttonVariants({
@@ -69,7 +71,7 @@ const ChatWrapper = ({ fileId }: ChatWrapperProps) => {
     <ChatContextProvider fileId={fileId}>
       <div className='relative min-h-full bg-zinc-50 flex divide-y divide-zinc-200 flex-col justify-between gap-2'>
         <div className='flex-1 justify-between flex-col flex mb-28'>
-          <Messages />
+          <Messages fileId={fileId} />
         </div>
 
         <ChatInput />
